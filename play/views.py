@@ -102,8 +102,8 @@ def dope():
                 if lvid == video_id:
                     return jsonify()
             r.rpush(config.REDIS_DOPE_KEY, vid+config.DIVISION_KEY+title)
+            util.PostToSlack("dope: " + title)
     return jsonify()
-
 
 @app.route('/api/queue', methods=['POST'])
 def api_queue():
